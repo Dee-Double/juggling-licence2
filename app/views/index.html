@@ -5,61 +5,40 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
-{% set pastDayHtml %}
-<h2 class="govuk-heading-l">Past day</h2>
-{{ govukTable({
-  head: [
+   <p class="govuk-body">Welcome to my little project to ansewer This prototype project is show various exmaples of of using the GOV prototype tool kit.</p>
+
+   <p class="govuk-body">These examples will cover:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Use of the GOV protoyping tool kit</li>
+  <li>Understanding of "off the shelf" patterns and components and how they should be 
+    used</li>
+  <li>pears</li>
+</ul>
+             
+
+
+
+{% set currentHtml %}
+<h2 class="govuk-heading-l">Current prototype</h2>
+{{ govukAccordion({
+  id: "accordion-default",
+  items: [
     {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
+      heading: {
+        text: "Writing well for the web"
+      },
+      content: {
+        html: '<p class="govuk-body">This is the content for Writing well for the web.</p>'
+       }
     }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "3"
-      },
-      {
-        text: "0"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "1"
-      },
-      {
-        text: "0"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "2"
-      },
-      {
-        text: "0"
-      }
-    ]
   ]
 }) }}
+
 {% endset -%}
 
 {% set pastWeekHtml %}
@@ -221,10 +200,10 @@
 {{ govukTabs({
   items: [
     {
-      label: "Past day",
-      id: "past-day",
+      label: "Current",
+      id: "Curent",
       panel: {
-        html: pastDayHtml
+        html: currentHtml
       }
     },
     {
